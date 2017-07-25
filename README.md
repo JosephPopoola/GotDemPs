@@ -10,7 +10,7 @@ Just felt like building my own even though there are plenty on the market.
 Run a quick **npm install** to get all the tings and then roll through my G.
 
 ##### What mans got in here so far ...
-+ [React Native (obvs)] (https://facebook.github.io/react-native/)
++ [React Native (obvs)](https://facebook.github.io/react-native/)
 + [Firebase](https://firebase.google.com/)
 + [@shoutem/ui](http://shoutem.github.io/)
 + [redux](http://redux.js.org/)
