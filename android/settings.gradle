@@ -1,0 +1,3 @@
+rootProject.name = 'GotDemPs'
+
+include ':app'
