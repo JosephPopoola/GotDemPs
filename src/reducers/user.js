@@ -1,7 +1,13 @@
+import addToArrayIfNew from './helpers/addToArrayIfNew'
+
 const initialState = {
-    name: null,
-    deductionTypes: [],
-    mansPs: []
+    name: '',
+    deductionTypes: [
+        {name: ''}
+    ],
+    mansPs: [
+        {name: ''}
+    ]
 }
 
 const user = (state = initialState, action) => {
@@ -10,14 +16,19 @@ const user = (state = initialState, action) => {
             return Object.assign({}, state, {
                 name: action.name
             });
-        case 'SET_DEDUCTION_TYPE':
-            return Object.assign({}, state, {
-                deductionTypes: action.deductionTypes
-            });
-        case 'SET_MANS_PS':
-            return Object.assign({}, state, {
-                mansPs: action.mansPs
-            });
+        case 'ADD_DEDUCTION_TYPE':
+            return addToArrayIfNew(state, state.deductionTypes, action.deductionType)           
+        case 'ADD_MANS_PS':
+            let index = state.mansPs.findIndex((x) => x.name === action.mansP.name); 
+            if(index > -1){
+                return state
+            }
+            else{
+                return {
+                    ...state,
+                    arr: [...state.mansPs, action.mansP]
+                }
+            }
         default: 
             return state
     }

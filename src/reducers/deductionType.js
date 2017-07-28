@@ -5,14 +5,27 @@ const initialState = {
 
 const deductionType = (state = initialState, action) => {
     switch(action.type){
-        case 'SET_DEDUCTION_NAME':
-            return Object.assign({}, state, {
-                name: action.name
-            });
-        case 'SET_DEDUCTION_PERCENTAGE':
-            return Object.assign({}, state, {
+        case 'ADD_DEDUCTION': 
+            return {
+                name: action.name,
                 percentage: action.percentage
-            });
+            }
+        default: 
+            return state
+    }
+};
+
+const deductionTypes = (state = [], action) => {
+    switch(action.type){
+        case 'ADD_DEDUCTION': 
+            if (state.map(m => m.id).includes(action.id)) {
+                return state;
+            }else{
+                return [
+                ...state,
+                deductionType(undefined, action)
+                ]
+            }
         default: 
             return state
     }
