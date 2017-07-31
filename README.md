@@ -9,7 +9,7 @@ Just felt like building my own even though there are plenty on the market.
 
 Run a quick **npm install** to get all the tings, then **npm start** and roll through my G.
 
-Used 'Create-React-App' to bootstrap the project that README is [here](./Web/README.old.md), this will help you do more than just initialise the proejct and run it.
+Used [Create React App](https://github.com/facebookincubator/create-react-app)' to bootstrap the project that README is [here](./Web/README.old.md), this will help you do more than just initialise the proejct and run it.
 
 #### What mans got in here so far ...
 + [React (obvs)](https://facebook.github.io/react/)
@@ -30,7 +30,7 @@ Used 'Create-React-App' to bootstrap the project that README is [here](./Web/REA
 
 Run a quick **npm install** to get all the tings, then **npm start** and roll through my G.
 
-Used 'Create-React-Native-App' to bootstrap the project that README is [here](./Mobile/README.old.md), this will help you do more than just initialise the proejct and run it.
+Used [Create React Native App](https://github.com/react-community/create-react-native-app) to bootstrap the project that README is [here](./Mobile/README.old.md), this will help you do more than just initialise the proejct and run it.
 
 #### What mans got in here so far ...
 + [React Native (obvs)](https://facebook.github.io/react-native/)
