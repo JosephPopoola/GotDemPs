@@ -16,7 +16,6 @@ handleInputChange(event) {
   const target = event.target;
   const value = target.value;
   const name = target.name;
-  debugger;
 
   this.setState({
     [name]: value
@@ -26,7 +25,7 @@ handleInputChange(event) {
 render (){
   return(
     <div>
-      <form onSubmit={this.props.SaveUser}>
+      <form onSubmit={this.props.SaveUser(this.state.User.name)}>
         <input 
           type="text" 
           name="userName" 

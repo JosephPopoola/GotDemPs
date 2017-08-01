@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ExpenditureList from './ExpenditureList'
 
 class DisplayMansP extends React.Component {
   constructor(props) {
@@ -35,7 +36,9 @@ class DisplayMansP extends React.Component {
             value={this.state.MansP.monthlyAmount} 
             onChange={this.handleInputChange} 
             />
-            {/* Expenditure List  */}
+            <ExpenditureList 
+              expenditures={this.state.MansP.expenditures} 
+              handleInputChange={this.handleInputChange} />
             <input 
             type="number" 
             name="disposableIncome" 
