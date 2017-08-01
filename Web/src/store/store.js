@@ -3,11 +3,8 @@ import {
   createStore,
 } from 'redux';
 import thunk from 'redux-thunk';
-import createLogger from "redux-logger";
-
+import logger from "redux-logger";
 import rootReducer from '../reducers'
-
-const logger = createLogger();
 
 export function configureStore(initialState = {}) {  
   const store = createStore(
