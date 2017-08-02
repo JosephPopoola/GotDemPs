@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import MansPContainer from '../containers/MansPContainer'
 import update from 'immutability-helper';
 
@@ -7,7 +6,7 @@ class DisplayUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      User: this.props.User
+      User: Object.assign({}, this.props.User)
     }
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -42,30 +41,12 @@ render (){
           value={this.state.User.name} 
           onChange={this.handleInputChange} />
           <button type="submit">SAVE USERNAME</button>
+          </form>
         <MansPContainer /> 
         <button>SAVE whole shit</button> 
-      </form>
+      
     </div>
-  )
-}
-
-static propTypes = {
-    User: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        mansPs: PropTypes.arrayOf(
-            PropTypes.shape({
-              name: PropTypes.string.isRequired,
-              annualAmount: PropTypes.number.isRequired,
-              monthlyAmount: PropTypes.number.isRequired,
-              expenditures: PropTypes.arrayOf(
-                PropTypes.shape({
-                  name: PropTypes.string.isRequired,
-                  value: PropTypes.number.isRequired
-                }).isRequired),
-              disposableIncome: PropTypes.number.isRequired
-            }).isRequired)
-      }).isRequired,
-    SaveUser: PropTypes.func.isRequired
+    )
   }
 }
 export default DisplayUser;

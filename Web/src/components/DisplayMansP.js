@@ -45,13 +45,7 @@ class DisplayMansP extends React.Component {
             />
             <ExpenditureList 
               expenditures={this.state.expenditures}/>
-            <input 
-            type="number" 
-            name="disposableIncome" 
-            placeholder="Disposable Income" 
-            value={this.state.disposableIncome} 
-            onChange={this.handleInputChange} 
-            />
+            <h3> {this.state.disposableIncome} </h3> {/* This probs should be its own entity?*/}
           </div>
       )
   };

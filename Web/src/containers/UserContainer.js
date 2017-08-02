@@ -3,10 +3,9 @@ import * as actions from '../actions'
 import DisplayUser  from '../components/DisplayUser'
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state)
-  console.log('state in user con')
+  console.log(state.user.mansPs.length)
   return {
-    User: state.user
+    User: Object.assign({}, state.user)
   }
 }
 

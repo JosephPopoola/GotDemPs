@@ -4,10 +4,6 @@ export const setUserName = (name) => ({
     name
 });
 
-export function addDeductionToUser (name){
-    return {type: 'ADD_DEDUCTION_TO_USER', name};
-}
-
 export function addMansPsToUser (manP){
     return {
         type: 'ADD_MANS_PS_TO_USER',
@@ -21,11 +17,8 @@ export function addMansP(){
     }
 };
 
-//MANS PS
-export function addExpenditure (expenditure){
-    console.log('doing it')
+export function addExpenditure(){
     return {
-        type: 'ADD_EXPENDITURE',
-        expenditure
+        type: 'ADD_EXPENDITURE'
     }
 };
