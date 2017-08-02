@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import MansPList from './MansPList'
+import update from 'immutability-helper';
 
 class DisplayUser extends React.Component {
   constructor(props) {
@@ -17,22 +18,31 @@ handleInputChange(event) {
   const value = target.value;
   const name = target.name;
 
-  this.setState({
-    [name]: value
-  });
+  let newState = update(this.state, {
+    User: { 
+      [name]: {$set: value}
+    }
+  })
+
+  this.setState(newState);
+}
+
+onSubmit(e){
+  e.preventDefault();
+  this.props.SaveUser(this.state.User);
 }
 
 render (){
   return(
     <div>
-      <form onSubmit={this.props.SaveUser(this.state.User.name)}>
+      <form onSubmit={this.onSubmit.bind(this)}>
         <input 
           type="text" 
-          name="userName" 
+          name="name" 
           placeholder="User Name" 
           value={this.state.User.name} 
           onChange={this.handleInputChange} />
-        <MansPList mansPs={this.state.MansPs} handleInputChange={this.handleInputChange} />  
+        <MansPList mansPs={this.state.MansPs} />  
         <button type="submit">SAVE</button>
       </form>
     </div>
@@ -55,8 +65,7 @@ static propTypes = {
               disposableIncome: PropTypes.number.isRequired
             }).isRequired)
       }).isRequired,
-    SaveUser: PropTypes.func.isRequired,
-    AddMansP: PropTypes.func
+    SaveUser: PropTypes.func.isRequired
   }
 }
 export default DisplayUser;

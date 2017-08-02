@@ -1,4 +1,3 @@
-//this will do all the redux stuff and pass down the necessary functions to the display layers below
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
 import DisplayUser  from './DisplayUser'
@@ -14,21 +13,22 @@ const fakeState = {
                 name: 'whip',
                 value: 100
             }],
-            disposableIncome: -554
+            disposableIncome: 12
         }],
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    User: fakeState.User
+    User: state.user
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    SaveUser: () => {
-      dispatch(actions.setUserName('Reggie'))
+    SaveUser: (user) => {
+      dispatch(actions.setUserName(user.name),
+      dispatch(actions.addMansPsToUser(fakeState.User.mansPs[0])))
     }
   }
 }

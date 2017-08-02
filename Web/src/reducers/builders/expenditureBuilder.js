@@ -6,7 +6,6 @@ const initialState = {
 }
 
 const expenditureBuild = (state = initialState, action) => {
-    console.log('build one for man still');
     return {
         name: action.name,
         value: action.value
@@ -14,14 +13,15 @@ const expenditureBuild = (state = initialState, action) => {
 };
 
 const expenditureBuilder = (state = initialState, action) => {
-    console.log(action);
-    console.log('DOING IT NOWWWWWWWWWWWWWW');
     switch(action.type){
         case 'ADD_EXPENDITURE':
             if(newEntryExistsInArray(state.expenditures, action)){
                 return state
             }
             else{
+                if(state.expenditures.map(m => m.name).includes('')){
+                    state.expenditures.splice(0,1);
+                }
                 return{
                     ...state,
                     expenditures: [...state.expenditures, expenditureBuild(undefined, action)]

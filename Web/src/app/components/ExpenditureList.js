@@ -18,7 +18,6 @@ class ExpenditureList extends React.Component {
                 return (<DisplayExpenditure
                   key={expenditure.name}
                   Expenditure={expenditure}
-                  HandleInputChange={this.props.handleInputChange} 
                   />);
               }, this)
             }
@@ -31,8 +30,7 @@ class ExpenditureList extends React.Component {
           PropTypes.shape({
             name: PropTypes.string.isRequired,
             value: PropTypes.number.isRequired
-          }).isRequired),
-      handleInputChange: PropTypes.func.isRequired
+          }).isRequired)
   }
 }
 

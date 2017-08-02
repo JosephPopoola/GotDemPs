@@ -18,7 +18,6 @@ class MansPList extends React.Component {
                 return (<DisplayMansP
                   key={mansP.name}
                   MansP={mansP}
-                  HandleInputChange={this.props.handleInputChange}
                   />);
               }, this)
             }
@@ -38,9 +37,7 @@ class MansPList extends React.Component {
                 value: PropTypes.number.isRequired
               }).isRequired),
             disposableIncome: PropTypes.number.isRequired
-          }).isRequired),
-      AddMansP: PropTypes.func,
-      handleInputChange: PropTypes.func.isRequired
+          }).isRequired)
   }
 }
 

@@ -18,6 +18,7 @@ Used [Create React App](https://github.com/facebookincubator/create-react-app) t
 + [redux](http://redux.js.org/)
 + [redux-thunk](https://github.com/gaearon/redux-thunk)
 + [redux-logger](https://github.com/evgenyrodionov/redux-logger)
++ [immutability-helper](https://github.com/kolodny/immutability-helper)
 
 #### References
 + Used to help with set up - http://blog.tylerbuchea.com/super-simple-react-redux-application-example/

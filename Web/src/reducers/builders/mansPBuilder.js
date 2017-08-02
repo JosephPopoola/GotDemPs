@@ -9,15 +9,15 @@ let initialState = {
 };
 
 const mansPBuilder = (state = initialState, action) => {
-    console.log(action.type);
+    console.log(state)
     switch(action.type){
         case 'ADD_MANS_PS_TO_USER': 
             return {
-                name: action.name,
-                annualAmount: action.percentage,
-                monthlyAmount: action.monthlyAmount,
+                name: action.manP.name,
+                annualAmount: action.manP.annualAmount,
+                monthlyAmount: action.manP.monthlyAmount,
                 expenditures: expenditureBuilder(state.expenditures, action.manP.expenditures),
-                disposableIncome: action.disposableIncome
+                disposableIncome: action.manP.disposableIncome
             }
         default: 
             return state

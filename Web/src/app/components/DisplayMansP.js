@@ -5,45 +5,51 @@ import ExpenditureList from './ExpenditureList'
 class DisplayMansP extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      MansP: this.props.MansP
-    }
+    this.state = this.props.MansP
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleInputChange = this.props.HandleInputChange;
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+        [name]: value
+    });
+  }
 
   render(){
       return(
           <div>
             <input 
             type="text" 
-            name="manPName" 
+            name="name" 
             placeholder="Name" 
-            value={this.state.MansP.name} 
+            value={this.state.name} 
             onChange={this.handleInputChange} 
             />
             <input 
             type="number" 
             name="annualAmount" 
             placeholder="Annual Amount" 
-            value={this.state.MansP.annualAmount} 
+            value={this.state.annualAmount} 
             onChange={this.handleInputChange} 
             />
             <input 
             type="number" 
             name="monthlyAmount" 
             placeholder="Monthly Amount" 
-            value={this.state.MansP.monthlyAmount} 
+            value={this.state.monthlyAmount} 
             onChange={this.handleInputChange} 
             />
             <ExpenditureList 
-              expenditures={this.state.MansP.expenditures} 
-              handleInputChange={this.handleInputChange} />
+              expenditures={this.state.expenditures}/>
             <input 
             type="number" 
             name="disposableIncome" 
             placeholder="Disposable Income" 
-            value={this.state.MansP.disposableIncome} 
+            value={this.state.disposableIncome} 
             onChange={this.handleInputChange} 
             />
           </div>
@@ -61,9 +67,7 @@ class DisplayMansP extends React.Component {
           value: PropTypes.number.isRequired
         }).isRequired),
       disposableIncome: PropTypes.number.isRequired
-    }).isRequired,
-    AddMansP: PropTypes.func,
-    HandleInputChange: PropTypes.func.isRequired
+    }).isRequired
   }
 }
 
