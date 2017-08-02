@@ -15,16 +15,11 @@ export function addMansPsToUser (manP){
     }
 };
 
-// DEDUCTIONS
-export function addDeduction (deduction){
-    console.log('running');
-    return function(dispatch){
-        dispatch({
-            type: 'ADD_DEDUCTION',
-            deduction,
-        });      
+export function addMansP(){
+    return {
+        type: 'ADD_MANS_P'
     }
-}
+};
 
 //MANS PS
 export function addExpenditure (expenditure){

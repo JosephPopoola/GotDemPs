@@ -6,7 +6,7 @@ class MansPList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      MansPs: this.props.mansPs
+      MansPs: this.props.User.mansPs
     }
   }
 
@@ -14,17 +14,17 @@ class MansPList extends React.Component {
       return(
           <div>
             {
-              this.state.MansPs.map(function(mansP){
+              this.state.MansPs.map(function(mansP,index){
                 return (<DisplayMansP
-                  key={mansP.name}
+                  key={index}
                   MansP={mansP}
                   />);
               }, this)
             }
+            <button onClick={this.props.AddMansP}>Add A Muhfuggin P FOR MAN</button>
           </div>
       )
   };
-
   static propTypes = {
       mansPs: PropTypes.arrayOf(
           PropTypes.shape({

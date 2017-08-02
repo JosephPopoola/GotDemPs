@@ -1,14 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import MansPList from './MansPList'
+import MansPContainer from '../containers/MansPContainer'
 import update from 'immutability-helper';
 
 class DisplayUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      User: this.props.User,
-      MansPs: this.props.User.mansPs
+      User: this.props.User
     }
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -42,8 +41,9 @@ render (){
           placeholder="User Name" 
           value={this.state.User.name} 
           onChange={this.handleInputChange} />
-        <MansPList mansPs={this.state.MansPs} />  
-        <button type="submit">SAVE</button>
+          <button type="submit">SAVE USERNAME</button>
+        <MansPContainer /> 
+        <button>SAVE whole shit</button> 
       </form>
     </div>
   )
