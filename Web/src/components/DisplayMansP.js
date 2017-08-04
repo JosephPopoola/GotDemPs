@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import ExpenditureList from './ExpenditureList'
 
 class DisplayMansP extends React.Component {
@@ -7,6 +6,11 @@ class DisplayMansP extends React.Component {
     super(props);
     this.state = this.props.MansP
     this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps){
+    this.state = Object.assign([{}], nextProps.MansP)
+    console.log(this.state)
   }
 
   handleInputChange(event) {
@@ -43,26 +47,14 @@ class DisplayMansP extends React.Component {
             value={this.state.monthlyAmount} 
             onChange={this.handleInputChange} 
             />
-            <ExpenditureList 
-              expenditures={this.state.expenditures}/>
+            <ExpenditureList
+              expenditures={this.state.expenditures}
+              mansP={this.state}
+              AddExpenditure={this.props.AddExpenditure}/>
             <h3> {this.state.disposableIncome} </h3> {/* This probs should be its own entity?*/}
           </div>
       )
   };
-
-  static propTypes = {
-    MansP: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      annualAmount: PropTypes.number.isRequired,
-      monthlyAmount: PropTypes.number.isRequired,
-      expenditures: PropTypes.arrayOf(
-        PropTypes.shape({
-          name: PropTypes.string.isRequired,
-          value: PropTypes.number.isRequired
-        }).isRequired),
-      disposableIncome: PropTypes.number.isRequired
-    }).isRequired
-  }
 }
 
 export default DisplayMansP;

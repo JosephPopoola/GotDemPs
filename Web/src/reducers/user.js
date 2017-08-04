@@ -1,5 +1,3 @@
-import newEntryExistsInArray from './helpers/newEntryExistsInArray'
-import mansPBuilder from './builders/mansPBuilder'
 import update from 'immutability-helper'
 
 const mansPstate = {
@@ -38,33 +36,27 @@ const user = (state = initialState, action) => {
             console.log(action.type)
             return Object.assign({}, state, {
                 name: action.name
-            });      
-        case 'ADD_MANS_PS_TO_USER': //needs to become an update
-            if(newEntryExistsInArray(state.mansPs, action.manP)){
-                return state
-            }
-            else{
-                if(state.mansPs.map(m => m.name).includes('')){
-                    update(state, {
-                        mansPs: {$splice: state.mansPs[0]}
-                    }) 
-                }
-                return{
-                    ...state,
-                    mansPs: [...state.mansPs, mansPBuilder(undefined, action)]
-                }
-            }              
+            });               
         case 'ADD_MANS_P':
             return update(state, {
                 mansPs: {$push: [mansPstate]}
             })           
         case 'ADD_EXPENDITURE':
-            return update(state, {
-                mansPs: 
-                {expenditure :
-                    {$push: [expenditureInitState]}
-                }
-            })           
+            let mansPsIndex = state.mansPs.findIndex(x=>x.name === action.mansP.name);
+            if(mansPsIndex > -1){
+                return update(state, {
+                        mansPs: {
+                            [mansPsIndex] : {
+                                expenditures: {$push: [expenditureInitState]}
+                            }
+                        }
+                    })
+            }              
+            return state
+        case 'SAVE_MANS_P':
+            return Object.assign({}, state, {
+                mansPs: action.user.mansPs
+            });         
         default: 
             return state
     }

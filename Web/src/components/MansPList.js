@@ -13,6 +13,7 @@ class MansPList extends React.Component {
     this.state = {
       MansPs: Object.assign([{}], nextProps.User.mansPs)
     }
+    console.log(this.state)
   }
 
   render(){
@@ -23,6 +24,7 @@ class MansPList extends React.Component {
                 return (<DisplayMansP
                   key={index}
                   MansP={mansP}
+                  AddExpenditure={this.props.AddExpenditure}
                   />);
               }, this)
             }

@@ -2,36 +2,38 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import DisplayExpenditure from './DisplayExpenditure'
 
-//needs to know which mansP it is under to get the corresponding Expenditures
-//will maybe need to pass it down from the diplaymansP component?
-//not sure need to research
-
 class ExpenditureList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Expenditure: this.props.expenditures
+      Expenditures: this.props.expenditures
     }
+    this.handleNexExpenditureClick = this.handleNexExpenditureClick.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
     this.state = {
-      Expenditure: Object.assign([{}], nextProps.expenditures)
+      Expenditures: Object.assign([{}], nextProps.expenditures)
     }
   }
   
+  handleNexExpenditureClick(e){
+    e.preventDefault();
+    this.props.AddExpenditure(this.props.mansP);
+  }
+
   render(){
       return(
           <div>
             {
-              this.state.Expenditure.map(function(expenditure){
+              this.state.Expenditures.map(function(expenditure, index){
                 return (<DisplayExpenditure
-                  key={expenditure.name}
+                  key={index}
                   Expenditure={expenditure}
                   />);
               }, this)
             }
-            {/*<button onClick={this.props.AddExpenditure}>Add New Expenditure</button>*/}
+            <button onClick={this.handleNexExpenditureClick}>Add New Expenditure</button>
           </div>
       )
   };

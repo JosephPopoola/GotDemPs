@@ -4,10 +4,10 @@ export const setUserName = (name) => ({
     name
 });
 
-export function addMansPsToUser (manP){
+export function saveMansP (user){
     return {
-        type: 'ADD_MANS_PS_TO_USER',
-        manP
+        type: 'SAVE_MANS_P',
+        user
     }
 };
 
@@ -17,8 +17,9 @@ export function addMansP(){
     }
 };
 
-export function addExpenditure(){
+export function addExpenditure(mansP){
     return {
-        type: 'ADD_EXPENDITURE'
+        type: 'ADD_EXPENDITURE',
+        mansP
     }
 };
