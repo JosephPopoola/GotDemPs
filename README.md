@@ -46,3 +46,6 @@ Used [Create React Native App](https://github.com/react-community/create-react-n
 #### References
 + Used to help with set up - https://medium.com/react-native-development/build-a-chat-app-with-firebase-and-redux-part-1-8a2197fb0f88
 + Used to help with set up - https://medium.com/@jamesmarino/getting-started-with-react-native-and-firebase-ab1f396db549
+
+## Projects to reference
++ https://medium.mybridge.co/22-amazing-open-source-react-projects-cb8230ec719f  

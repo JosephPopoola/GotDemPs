@@ -10,14 +10,13 @@ class DisplayMansP extends React.Component {
 
   componentWillReceiveProps(nextProps){
     this.state = Object.assign([{}], nextProps.MansP)
-    console.log(this.state)
   }
 
   handleInputChange(event) {
     const target = event.target;
     const value = target.value;
     const name = target.name;
-
+    
     this.setState({
         [name]: value
     });
